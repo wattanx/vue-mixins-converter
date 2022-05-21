@@ -1,0 +1,6 @@
+{
+  "input": "src/mixins/MixinSample.js",
+  "outputFileName": "",
+  "output": "dist",
+  "useNuxt": true
+}
