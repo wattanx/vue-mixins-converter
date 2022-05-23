@@ -88,8 +88,3 @@ watch(
   </div>
 </template>
 
-<style scoped>
-.hasError {
-  @apply border-4 border-red-500 outline-none;
-}
-</style>
