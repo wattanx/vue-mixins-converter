@@ -18,6 +18,6 @@ https://github.com/miyaoka/vue-composition-converter
 
 > **Warning**
 > 
-> props do not convert.
+> If props are defined, they must be passed to 'composables'.
 >
-> This is because props should be held on the component side.
+> It is also necessary to define props on the component side.

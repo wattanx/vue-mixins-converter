@@ -12,13 +12,13 @@ export const convertOptionsApi = (
     throw new Error('invalid options');
   }
 
-  const { setupProps } = options;
+  const { setupProps, propNames } = options;
 
   const newSrc = ts.factory.createSourceFile(
     [
-      ...getImportStatement(setupProps, useNuxt),
+      ...getImportStatement(setupProps,useNuxt),
       ...sourceFile.statements.filter((state) => !ts.isExportAssignment(state)),
-      getExportStatement(setupProps, fileName),
+      getExportStatement(setupProps, propNames, fileName),
     ],
     sourceFile.endOfFileToken,
     sourceFile.flags

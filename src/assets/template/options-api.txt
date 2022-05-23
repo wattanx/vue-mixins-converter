@@ -1,6 +1,11 @@
 export default {
   name: 'MixinSample',
-  props: {},
+  props: {
+    dirty: {
+      type: Boolean,
+      required: true
+    }
+  },
   data() {
     return {
       firstName: 'first',
@@ -11,5 +16,8 @@ export default {
     fullName() {
       return this.firstName + this.lastName;
     },
+    isDirty() {
+      return this.dirty;
+    }
   },
 };

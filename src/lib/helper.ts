@@ -137,7 +137,6 @@ export const getImportStatement = (
   useNuxt?: boolean
 ) => {
   let usedFunctions = [
-    'SetupContext',
     ...new Set(setupProps.map(({ use }) => use).filter(nonNull)),
   ];
 
@@ -168,6 +167,7 @@ export const getImportStatement = (
 
 export const getExportStatement = (
   setupProps: ConvertedExpression[],
+  propNames: string[],
   fileName: string
 ) => {
   const useStoreStatements = ts.createSourceFile(
@@ -176,17 +176,24 @@ export const getExportStatement = (
     ts.ScriptTarget.Latest
   ).statements;
 
-  const props = [
+  const props = [factory.createParameterDeclaration(
+    undefined,
+    undefined,
+    undefined,
+    factory.createIdentifier("props"),
+    undefined,
+    undefined,
+    undefined
+  )]
+
+  const contextProps = [
     factory.createParameterDeclaration(
       undefined,
       undefined,
       undefined,
       factory.createIdentifier('ctx'),
       undefined,
-      factory.createTypeReferenceNode(
-        factory.createIdentifier('SetupContext'),
-        undefined
-      ),
+      undefined,
       undefined
     ),
   ];
@@ -202,7 +209,7 @@ export const getExportStatement = (
           factory.createArrowFunction(
             undefined,
             undefined,
-            props,
+            propNames.length > 0 ? [...props, ...contextProps] : contextProps,
             undefined,
             factory.createToken(ts.SyntaxKind.EqualsGreaterThanToken),
             factory.createBlock(
