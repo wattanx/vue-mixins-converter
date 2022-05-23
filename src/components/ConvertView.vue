@@ -27,7 +27,7 @@ const selectedOutputType = ref(outputTypeKeys[0]);
 const hasError = ref(false);
 
 watch(
-  [input, selectedOutputType],
+  [input, selectedOutputType, functionName],
   () => {
     const useNuxt = selectedOutputType.value === 'nuxt2';
     try {
@@ -64,11 +64,15 @@ watch(
             id="function-name"
             class="rounded-md border-1 border-solid border-borderColor px-2 outline outline-2 outline-transparent focus:outline-focused"
             type="text"
-            :value="functionName"
+            v-model="functionName"
           />
         </div>
       </div>
-      <TargetSourceView :input="input" :has-error="hasError" />
+      <textarea
+        class="text-md w-full flex-1 border p-2 leading-5"
+        :class="{ hasError }"
+        v-model="input"
+      ></textarea>
     </div>
     <div class="flex flex-1 flex-col">
       <div class="flex flex-row py-4">
@@ -84,7 +88,10 @@ watch(
         </select>
       </div>
 
-      <OutputSourceView :output="output" />
+      <pre
+        class="hljs text-md w-full flex-1 select-all whitespace-pre-wrap border p-2 leading-5"
+        v-html="output"
+      ></pre>
     </div>
   </div>
 </template>
