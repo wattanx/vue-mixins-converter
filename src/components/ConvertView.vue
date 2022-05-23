@@ -21,7 +21,7 @@ const outputType = new Map([
 const outputTypeKeys = [...outputType.keys()];
 
 const input = ref(optionsApi);
-const fileName = ref('useMixinSample');
+const functionName = ref('useMixinSample');
 const output = ref('');
 const selectedOutputType = ref(outputTypeKeys[0]);
 const hasError = ref(false);
@@ -34,7 +34,7 @@ watch(
       hasError.value = false;
       const outputText = convertSrc({
         input: input.value,
-        fileName: fileName.value,
+        fileName: functionName.value,
         useNuxt,
       });
       const prettifiedHtml = hljs.highlightAuto(
@@ -59,12 +59,12 @@ watch(
       <div class="flex flex-row space-x-4 py-4">
         <h2>Input: Vue2 Mixins</h2>
         <div>
-          <label for="filename">filename: </label>
+          <label for="function-name">functionName: </label>
           <input
-            id="filename"
+            id="function-name"
             class="rounded-md border-1 border-solid border-borderColor px-2 outline outline-2 outline-transparent focus:outline-focused"
             type="text"
-            :value="fileName"
+            :value="functionName"
           />
         </div>
       </div>
