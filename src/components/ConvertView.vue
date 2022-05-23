@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
-import OutputSourceView from './OutputSourceView.vue';
 import prettier from 'prettier';
 import parserTypeScript from 'prettier/parser-typescript';
 import hljs from 'highlight.js/lib/core';
@@ -9,7 +8,6 @@ import 'highlight.js/styles/atom-one-dark.css';
 import { convertSrc } from '../lib/converter';
 // @ts-ignore
 import optionsApi from '../assets/template/options-api.txt?raw';
-import TargetSourceView from './TargetSourceView.vue';
 
 hljs.registerLanguage('typescript', typescript);
 
