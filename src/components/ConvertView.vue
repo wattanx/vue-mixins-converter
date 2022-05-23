@@ -73,13 +73,12 @@ watch(
     <div class="flex flex-1 flex-col">
       <div class="flex flex-row py-4">
         <label for="output-type" class="mr-2">Output: </label>
-        <select
-          id="output-type"
+        <select id="output-type"
           v-model="selectedOutputType"
           class="rounded-md border-1 border-solid border-borderColor outline outline-2 outline-transparent focus:outline-focused"
         >
-          <option v-for="key in outputTypeKeys" :key="key" :value="key">
-            {{ outputType.get(key) }}
+          <option v-for="key in outputTypeKeys" :key="key">
+            {{ key }}
           </option>
         </select>
       </div>
@@ -88,3 +87,4 @@ watch(
     </div>
   </div>
 </template>
+
