@@ -16,6 +16,8 @@ https://github.com/miyaoka/vue-composition-converter
   - beforeCreate, created -> Immediate function
   - props -> toRefs()
 
-> ** Warning **
+> **Warning**
+> 
 > props do not convert.
+>
 > This is because props should be held on the component side.
