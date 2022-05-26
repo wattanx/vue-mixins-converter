@@ -1,9 +1,12 @@
 # Vue Mixins Converter
 Convert mixins to composables.
 
+`vue-mixins-converter` is designed based on products involving wattanx individuals. Use at your own risk.
+
 The core logic is based on the following repository.
 
 https://github.com/miyaoka/vue-composition-converter
+
 
 ## convert options
 
