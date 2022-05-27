@@ -7,6 +7,8 @@ The core logic is based on the following repository.
 
 https://github.com/miyaoka/vue-composition-converter
 
+## Demo
+https://vue-mixins-converter.vercel.app/
 
 ## convert options
 
